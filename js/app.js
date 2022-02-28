@@ -38,6 +38,18 @@ loadCountries();
 const displayCountries = (countries) => {
   const countriesDiv = document.getElementById("countries");
   countriesDiv.textContent = "";
+  console.log(countries);
+  countries.sort(function (a, b) {
+    let x = a.name.common.toLowerCase();
+    let y = b.name.common.toLowerCase();
+    if (x < y) {
+      return -1;
+    }
+    if (x > y) {
+      return 1;
+    }
+    return 0;
+  });
   countries.forEach((country) => {
     const singleCountry = document.createElement("div");
     // console.log(country);
